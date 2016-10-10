@@ -1,0 +1,189 @@
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "system" varchar, "release_date" date, "image" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "rating" integer) [0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151025032339')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150729053817')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20151031212300)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "password" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20151031212300"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "games" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "system" varchar, "release_date" date, "image" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "rating" integer) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "user_sessions" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "session_id" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151031224833')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20150729053817')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20151025032339')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20151031215206')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "games"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "games" ("title", "system", "release_date", "image", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2015-07-28', 'MyString', '2015-10-31 23:03:51', '2015-10-31 23:03:51', 980190962)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "games" ("title", "system", "release_date", "image", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2015-07-28', 'MyString', '2015-10-31 23:03:51', '2015-10-31 23:03:51', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "user_sessions"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "user_sessions" ("session_id", "user_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, '2015-10-31 23:03:51', '2015-10-31 23:03:51', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "user_sessions" ("session_id", "user_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, '2015-10-31 23:03:51', '2015-10-31 23:03:51', 298486374)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password", "created_at", "updated_at", "id") VALUES ('Brandi', 'Balentine', 'brandi@example.com', 'hello123', '2015-10-31 23:03:51', '2015-10-31 23:03:51', 980190962)[0m
+SQLite3::SQLException: table users has no column named password: INSERT INTO "users" ("first_name", "last_name", "email", "password", "created_at", "updated_at", "id") VALUES ('Brandi', 'Balentine', 'brandi@example.com', 'hello123', '2015-10-31 23:03:51', '2015-10-31 23:03:51', 980190962)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "games"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "games" ("title", "system", "release_date", "image", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2015-07-28', 'MyString', '2015-10-31 23:05:57', '2015-10-31 23:05:57', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "games" ("title", "system", "release_date", "image", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2015-07-28', 'MyString', '2015-10-31 23:05:57', '2015-10-31 23:05:57', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "user_sessions"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "user_sessions" ("session_id", "user_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, '2015-10-31 23:05:57', '2015-10-31 23:05:57', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "user_sessions" ("session_id", "user_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, '2015-10-31 23:05:57', '2015-10-31 23:05:57', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at", "id") VALUES ('Brandi', 'Balentine', 'brandi@example.com', '$2a$10$0SqBawEqUNRnctVPkyMRWed9gyLcWgz6t05qSCmSHnQMAC43.Gvey', '2015-10-31 23:05:57', '2015-10-31 23:05:57', 62963024)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at", "id") VALUES ('Scott', 'Balentine', 'scott@example.com', '$2a$10$XcrSm83Y0rdehcQhJCz2RerBBCGnxf9UuLUmv1JX.GsUufRzracKa', '2015-10-31 23:05:57', '2015-10-31 23:05:57', 242462757)[0m
+  [1m[35m (2.1ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------
+UserTest: test_first_name_is_required
+-------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 62963024]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "games"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "games" ("title", "system", "release_date", "image", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2015-07-28', 'MyString', '2015-10-31 23:06:59', '2015-10-31 23:06:59', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "games" ("title", "system", "release_date", "image", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2015-07-28', 'MyString', '2015-10-31 23:06:59', '2015-10-31 23:06:59', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "user_sessions"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "user_sessions" ("session_id", "user_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, '2015-10-31 23:06:59', '2015-10-31 23:06:59', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "user_sessions" ("session_id", "user_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, '2015-10-31 23:06:59', '2015-10-31 23:06:59', 298486374)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at", "id") VALUES ('Brandi', 'Balentine', 'brandi@example.com', '$2a$10$Kwc.rlXdef4SMH7sBREq0OyLJw.Ez7w9nVhKhTR7L1Au4wF6nlRc6', '2015-10-31 23:06:59', '2015-10-31 23:06:59', 62963024)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at", "id") VALUES ('Scott', 'Balentine', 'scott@example.com', '$2a$10$xfVFm.K4Nq7tHNPaq8Sj0.Cjb/z1ZWPz3YvMemn2w4fg6sYnR7ROS', '2015-10-31 23:06:59', '2015-10-31 23:06:59', 242462757)[0m
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+-------------------------------------
+UserTest: test_first_name_is_required
+-------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 62963024]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "games"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "games" ("title", "system", "release_date", "image", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2015-07-28', 'MyString', '2015-10-31 23:07:45', '2015-10-31 23:07:45', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "games" ("title", "system", "release_date", "image", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2015-07-28', 'MyString', '2015-10-31 23:07:45', '2015-10-31 23:07:45', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "user_sessions"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "user_sessions" ("session_id", "user_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, '2015-10-31 23:07:45', '2015-10-31 23:07:45', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "user_sessions" ("session_id", "user_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, '2015-10-31 23:07:45', '2015-10-31 23:07:45', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at", "id") VALUES ('Brandi', 'Balentine', 'brandi@example.com', '$2a$10$wnHe5gXRqSbSnz5FmJI68uV3Q2ePovV3FMZN6UrtDiSCT.VxL3oOe', '2015-10-31 23:07:45', '2015-10-31 23:07:45', 62963024)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at", "id") VALUES ('Scott', 'Balentine', 'scott@example.com', '$2a$10$aMpYcXldvnP1LDQOGJz9VuoyoKk1ldyyZcd0azFYw/aCR7pf54BDi', '2015-10-31 23:07:45', '2015-10-31 23:07:45', 242462757)[0m
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------
+UserTest: test_first_name_is_required
+-------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 62963024]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "games"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "games" ("title", "system", "release_date", "image", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2015-07-28', 'MyString', '2015-10-31 23:08:36', '2015-10-31 23:08:36', 980190962)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "games" ("title", "system", "release_date", "image", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2015-07-28', 'MyString', '2015-10-31 23:08:36', '2015-10-31 23:08:36', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "user_sessions"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "user_sessions" ("session_id", "user_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, '2015-10-31 23:08:36', '2015-10-31 23:08:36', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "user_sessions" ("session_id", "user_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, '2015-10-31 23:08:36', '2015-10-31 23:08:36', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at", "id") VALUES ('Brandi', 'Balentine', 'brandi@example.com', '$2a$10$RX/WCs1baEs8zRvKGFlUOOWsLOl5DD7iifAtYyKzvJ90quz6d70.2', '2015-10-31 23:08:36', '2015-10-31 23:08:36', 62963024)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at", "id") VALUES ('Scott', 'Balentine', 'scott@example.com', '$2a$10$vMPGLDWBMFP1cx1DRoT.N.vJmQ/YgdDcNVu7c09tZEGZbZYhWP4GC', '2015-10-31 23:08:36', '2015-10-31 23:08:36', 242462757)[0m
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------
+UserTest: test_first_name_is_required
+-------------------------------------
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 62963024]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+--------------------------------
+UserTest: test_email_is_required
+--------------------------------
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 62963024]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------
+UserTest: test_last_name_is_required
+------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 62963024]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+UserTest: test_password_digest_is_required
+------------------------------------------
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 62963024]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "games"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "games" ("title", "system", "release_date", "image", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2015-07-28', 'MyString', '2015-10-31 23:08:53', '2015-10-31 23:08:53', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "games" ("title", "system", "release_date", "image", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2015-07-28', 'MyString', '2015-10-31 23:08:53', '2015-10-31 23:08:53', 298486374)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "user_sessions"
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "user_sessions" ("session_id", "user_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, '2015-10-31 23:08:53', '2015-10-31 23:08:53', 980190962)[0m
+  [1m[35mFixture Insert (0.0ms)[0m  INSERT INTO "user_sessions" ("session_id", "user_id", "created_at", "updated_at", "id") VALUES ('MyString', 1, '2015-10-31 23:08:53', '2015-10-31 23:08:53', 298486374)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "users"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at", "id") VALUES ('Brandi', 'Balentine', 'brandi@example.com', '$2a$10$FiFxCAkE7n8gc/Lp.a3lfuLz3GeGw9WP/Zb9h7DIR4CFT9/Wefi3O', '2015-10-31 23:08:53', '2015-10-31 23:08:53', 62963024)
+  [1m[36mFixture Insert (0.0ms)[0m  [1mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at", "id") VALUES ('Scott', 'Balentine', 'scott@example.com', '$2a$10$eaJpnd4bF.O1Auuxq3NzmO0aYWuThE4dE4LswpQwIB3ACB0z6pgmq', '2015-10-31 23:08:53', '2015-10-31 23:08:53', 242462757)[0m
+  [1m[35m (2.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+--------------------------------
+UserTest: test_email_is_required
+--------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 62963024]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+------------------------------------------
+UserTest: test_password_digest_is_required
+------------------------------------------
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 62963024]]
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+------------------------------------
+UserTest: test_last_name_is_required
+------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 62963024]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "last_name" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_name", nil], ["updated_at", "2015-10-31 23:08:53.822002"], ["id", 62963024]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+-------------------------------------
+UserTest: test_first_name_is_required
+-------------------------------------
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 62963024]]
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
